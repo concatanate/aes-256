@@ -216,7 +216,7 @@ void KeyExpansionCore(unsigned char * in, unsigned char i) {
  * Total of 11 128-bit keys generated, including the original
  * Keys are stored one after the other in expandedKeys
  */
-void KeyExpansion(unsigned char inputKey[16], unsigned char expandedKeys[176]) {
+void KeyExpansion(unsigned char inputKey[16], unsigned char expandedKeys[240]) {
 	// The first 128 bits are the original key
 	for (int i = 0; i < 16; i++) {
 		expandedKeys[i] = inputKey[i];
@@ -226,7 +226,7 @@ void KeyExpansion(unsigned char inputKey[16], unsigned char expandedKeys[176]) {
 	int rconIteration = 1; // Keeps track of rcon value
 	unsigned char tmpCore[4]; // Temp storage for core
 
-	while (bytesGenerated < 176) {
+	while (bytesGenerated < 240) {
 		/* Read 4 bytes for the core
 		* They are the previously generated 4 bytes
 		* Initially, these will be the final 4 bytes of the original key
